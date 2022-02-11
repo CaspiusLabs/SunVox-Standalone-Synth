@@ -1,6 +1,6 @@
 # SunVox Standalone DIY Synth
 ## Make your own portable Raspberry Pi synth!
-### Find more information on project page:
+### Find more information on this project page:
 https://www.caspiuslabs.com/portfolio/sunvox-standalone-synth/
 
 ## Installation instructions:
