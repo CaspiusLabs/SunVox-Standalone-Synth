@@ -5,9 +5,10 @@ https://www.caspiuslabs.com/portfolio/sunvox-standalone-synth/
 
 ## Installation instructions:
 
-Tested on Raspberry PI 3 A+ with installed PI OS Lite Legacy (Debian Buster) version without GUI and SunVox-1.9.6c.
+Tested on Raspberry Pi 3 A+ with installed Pi OS Lite Legacy (Debian Buster) version without GUI and SunVox-1.9.6c.
 
-> CONFIG EDIT
+
+> After Pi OS installation connect to the terminal and edit config file:
 
     sudo nano /boot/config.txt
 
@@ -22,7 +23,7 @@ Tested on Raspberry PI 3 A+ with installed PI OS Lite Legacy (Debian Buster) ver
     dtoverlay=pi3-disable-bt
     dtoverlay=gpio-shutdown
 
-> COMMANDS
+> Next upgrade system and install SunVox and encoder.py script:
 
     sudo apt-get update
     sudo apt-get upgrade
@@ -39,13 +40,13 @@ Tested on Raspberry PI 3 A+ with installed PI OS Lite Legacy (Debian Buster) ver
     sudo chown root /usr/bin/sunvox
     sudo chown root /usr/bin/encoder.py
 
-> cmdline.txt EDIT
+> Edit cmdline.txt to remove splash screen and loading text:
 
     sudo nano /boot/cmdline.txt
 
     console=tty3 loglevel=3 rd.udev.log_priority=3 splash quiet plymouth.ignore-serial-consoles logo.nologo vt.global_cursor_default=0
 
-> /etc/modules EDIT
+> Add uinput library for encoder script to work:
 
     sudo nano /etc/modules
 
@@ -56,7 +57,7 @@ Tested on Raspberry PI 3 A+ with installed PI OS Lite Legacy (Debian Buster) ver
 
     uinput
 
-> Services EDIT
+> Add services to run SunVox and encoder script at boot:
 
     sudo nano /lib/systemd/system/sunvox.service
 
@@ -84,7 +85,7 @@ Tested on Raspberry PI 3 A+ with installed PI OS Lite Legacy (Debian Buster) ver
     [Install]
     WantedBy=multi-user.target
 
-> COMMANDS
+> Run services:
 
     sudo chmod 644 /lib/systemd/system/encoder.service
     sudo chmod 644 /lib/systemd/system/sunvox.service
@@ -92,10 +93,12 @@ Tested on Raspberry PI 3 A+ with installed PI OS Lite Legacy (Debian Buster) ver
     sudo systemctl enable encoder.service
     sudo systemctl enable sunvox.service
 
+> Run sound mixer to setup sound card and reboot:
+
     alsamixer
     sudo reboot
 
-> Sunvox config file EDIT
+> Edit SunVox config file:
 
     sudo nano /sunvox_config.ini
 
