@@ -93,6 +93,12 @@ Tested on Raspberry Pi 3 A+ with installed Pi OS Lite Legacy (Debian Buster) ver
     sudo systemctl enable encoder.service
     sudo systemctl enable sunvox.service
 
+> Run system config setup wifi and turn on console autologin:
+
+    sudo raspi-config
+    
+    System Options > Console Autologin
+
 > Run sound mixer to setup sound card and reboot:
 
     alsamixer
@@ -127,5 +133,13 @@ Tested on Raspberry Pi 3 A+ with installed Pi OS Lite Legacy (Debian Buster) ver
     builtin_theme 18
     fpreview_ys 48
     fpreview 1
+
+> You can turn on/off wifi with this commands:
+
+    sudo rfkill list all
+    sudo rfkill block wifi
+    sudo rfkill unblock wifi
+
+When you exit from SunVox you can controll wifi by slecting this commands with encoder, no keyboard needed!
 
 
