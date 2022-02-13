@@ -62,7 +62,7 @@ Tested on Raspberry Pi 3 A+ with installed Pi OS Lite Legacy (Debian Buster) ver
     sudo nano /lib/systemd/system/encoder.service
 
     [Unit]
-    Description=Encoder
+    Description=Encoder Controller
     After=multi-user.target
 
     [Service]
