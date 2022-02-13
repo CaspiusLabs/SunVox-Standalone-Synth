@@ -67,7 +67,7 @@ Tested on Raspberry Pi 3 A+ with installed Pi OS Lite Legacy (Debian Buster) ver
 
     [Service]
     Type=idle
-    ExecStart=sudo python /usr/bin/encoder.py
+    ExecStart=sudo python /bin/encoder.py
 
     [Install]
     WantedBy=multi-user.target
