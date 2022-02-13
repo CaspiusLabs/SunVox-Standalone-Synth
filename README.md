@@ -35,10 +35,10 @@ Tested on Raspberry Pi 3 A+ with installed Pi OS Lite Legacy (Debian Buster) ver
 
     chmod +x /home/pi/sunvox
     chmod +x /home/pi/encoder.py
-    sudo mv sunvox /usr/bin/sunvox
-    sudo mv encoder.py /usr/bin/encoder.py
-    sudo chown root /usr/bin/sunvox
-    sudo chown root /usr/bin/encoder.py
+    sudo mv sunvox /bin/sunvox
+    sudo mv encoder.py /bin/encoder.py
+    sudo chown root /bin/sunvox
+    sudo chown root /bin/encoder.py
 
 > Edit cmdline.txt to remove splash screen and loading text:
 
@@ -96,15 +96,14 @@ Tested on Raspberry Pi 3 A+ with installed Pi OS Lite Legacy (Debian Buster) ver
     alsamixer
     sudo reboot
 
-> Edit SunVox config file:
+> Edit SunVox config file and paste below settings:
 
-    sudo nano /sunvox_config.ini
+    sudo nano /home/pi/sunvox_config.ini
 
     startmsg 1
     audiodriver alsa
     audiodevice hw:0,0
     audiodevice_in hw:0,0
-    frequency 96000
     midi_kbd "USB Midi MIDI 1"
     midi_kbd_ch 1
     hdiv1_y 40
