@@ -57,20 +57,7 @@ Tested on Raspberry Pi 3 A+ with installed Pi OS Lite Legacy (Debian Buster) ver
 
     uinput
 
-> Add services to run SunVox and encoder script at boot:
-
-    sudo nano /lib/systemd/system/sunvox.service
-
-    [Unit]
-    Description=SunVox
-    After=multi-user.target
-
-    [Service]
-    Type=idle
-    ExecStart=/usr/bin/sunvox
-
-    [Install]
-    WantedBy=multi-user.target
+> Add service to run encoder controller script in the background:
 
     sudo nano /lib/systemd/system/encoder.service
 
@@ -85,13 +72,18 @@ Tested on Raspberry Pi 3 A+ with installed Pi OS Lite Legacy (Debian Buster) ver
     [Install]
     WantedBy=multi-user.target
 
-> Run services:
+> Run service:
 
     sudo chmod 644 /lib/systemd/system/encoder.service
-    sudo chmod 644 /lib/systemd/system/sunvox.service
     sudo systemctl daemon-reload
     sudo systemctl enable encoder.service
-    sudo systemctl enable sunvox.service
+    
+> Add at the end of .bashrc file SunVox run command to autostart it at boot:
+
+    sudo nano /home/pi/.bashrc
+
+    echo Running SunVox please wait...
+    sudo /bin/sunvox
 
 > Run system config setup wifi and turn on console autologin:
 
